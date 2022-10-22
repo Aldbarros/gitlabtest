@@ -8,7 +8,8 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module'
+    sourceType: 'module',
+    prokect: './tsconfig.json'
   },
   rules: {
   }
