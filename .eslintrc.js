@@ -9,8 +9,9 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    prokect: './tsconfig.json'
+    project: './tsconfig.json'
   },
   rules: {
+    'eslint-disable-next-line @typescript-eslint/strict-boolean-expressions': 'off'
   }
 }
