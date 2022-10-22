@@ -3,6 +3,7 @@ import helmet from 'helmet'
 import cors from 'cors'
 import compression from 'compression'
 import morgan from 'morgan'
+import { errorMiddleware, erro404 } from './ErrorHandler'
 
 export const useMiddlewares = (app: Application): void => {
   app.use(compression())
@@ -16,4 +17,6 @@ export const useMiddlewares = (app: Application): void => {
   app.use(morgan('dev'))
   // rotas
   // erros
+  app.use(erro404)
+  app.use(errorMiddleware)
 }
