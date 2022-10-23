@@ -2,16 +2,16 @@ import type { Request, Response, NextFunction } from 'express'
 import { IResponse } from './protocols/IResponse'
 
 export class ErrorHandler extends Error {
-  constructor (public nomeErro: string, public mensagemErro: string, public statusCode: number) {
-    super('Aconteceu um erro inesperado no servidor, tente novamente')
-    this.name = nomeErro
-    this.mensagemErro = mensagemErro || this.message
-    this.statusCode = statusCode
-  }
+  public readonly statusCode: number
+  public readonly mensagemErro: string
+  public readonly nomeErro: string
 
-  print (): void {
-    console.error(`Foi encontrado um erro\nNome do erro: ${this.nomeErro}\nMensagem: ${this.mensagemErro}\nStatus Code: ${this.statusCode}\n${JSON.stringify(this.stack, null, 2)}`)
-    console.error('Causa: ', this.cause)
+  constructor (nomeErro: string, mensagemErro: string, statusCode: number) {
+    super()
+    this.name = nomeErro
+    this.nomeErro = nomeErro
+    this.mensagemErro = mensagemErro
+    this.statusCode = statusCode
   }
 }
 
@@ -27,7 +27,7 @@ export const errorMiddleware = (err: ErrorHandler | unknown, req: Request, res: 
       }
     })
   }
-  res.status(500).json({
+  return res.status(500).json({
     statusCode: 500,
     body: {
       timestamp: new Date().toLocaleDateString('pt-PT', { day: 'numeric', month: 'long', year: 'numeric' }),
