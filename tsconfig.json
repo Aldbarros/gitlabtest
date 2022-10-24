@@ -1,17 +1,25 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
     "outDir": "build",
-    "strict": true,
-    "lib": ["ESNext"],
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
+    "target": "ESNext",
+    "module": "CommonJS",
     "moduleResolution": "node",
-    "esModuleInterop": true
-},
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.test.ts"]
+    "esModuleInterop": true,
+    "downlevelIteration": true,
+    "allowSyntheticDefaultImports": true,
+    "importHelpers": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "removeComments": true,
+    "noEmitOnError": true,
+    "strict": true,
+    "alwaysStrict": false,
+    "noImplicitAny": false,
+  },
+  "include": ["src/**/*.ts",],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "__tests__"
+  ]
 }

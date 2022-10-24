@@ -15,7 +15,7 @@ export class ErrorHandler extends Error {
   }
 }
 
-export const errorMiddleware = (err: ErrorHandler | unknown, req: Request, res: Response<IResponse>, _next: NextFunction): any => {
+export const errorMiddleware = (err: ErrorHandler | unknown, req: Request, res: Response<IResponse>, next: NextFunction): any => {
   console.error(err)
   if (err instanceof ErrorHandler) {
     return res.status(err.statusCode).json({
@@ -27,7 +27,7 @@ export const errorMiddleware = (err: ErrorHandler | unknown, req: Request, res: 
       }
     })
   }
-  return res.status(500).json({
+  res.status(500).json({
     statusCode: 500,
     body: {
       timestamp: new Date().toLocaleDateString('pt-PT', { day: 'numeric', month: 'long', year: 'numeric' }),
