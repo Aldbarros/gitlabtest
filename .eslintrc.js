@@ -12,6 +12,7 @@ module.exports = {
     project: './tsconfig.json'
   },
   rules: {
-    'eslint-disable-next-line @typescript-eslint/strict-boolean-expressions': 'off'
+    'eslint-disable-next-line @typescript-eslint/strict-boolean-expressions': 'off',
+    '@typescript-eslint/no-misused-promises': 'off'
   }
 }
