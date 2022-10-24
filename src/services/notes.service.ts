@@ -1,10 +1,10 @@
 import { notesDBinst } from '../utils/dbInstances'
-// import { ErrorHandler } from '../utils/ErrorHandler'
 import { paginate } from 'arrpag'
 import Fuse from 'fuse.js'
 import { InsertNoteDTO } from './DTOS/insertNoteDTO'
 import { Nota } from '@prisma/client'
-// import { Notes, Note } from './protocols/note'
+import { ErrorHandler } from '../utils/ErrorHandler'
+import { UpdateNoteDTO } from './DTOS/updateNoteDTO'
 
 export const listarNotas = async (pagina: string, porPagina: string, sq?: string): Promise<any> => {
   const notas = await notesDBinst.findMany()
@@ -22,4 +22,24 @@ export const listarNotas = async (pagina: string, porPagina: string, sq?: string
 export const adicionarNota = async (nota: InsertNoteDTO): Promise<Nota> => {
   const notaInput = await notesDBinst.create({ data: nota })
   return notaInput
+}
+
+export const listarUmaNota = async (idNota: string): Promise<Nota> => {
+  const nota = await notesDBinst.findUnique({ where: { idNota } })
+  if (nota === null) {
+    throw new ErrorHandler('NOTFOUND', 'Nota não encontrada', 404)
+  }
+  return nota
+}
+
+export const atualizarUmaNota = async ({ idNota, nota }: UpdateNoteDTO): Promise<Nota> => {
+  await listarUmaNota(idNota)
+  const notaAtualizada = await notesDBinst.update({ where: { idNota }, data: { nota } })
+  return notaAtualizada
+}
+
+export const eliminarUmaNota = async (idNota: string): Promise<Nota> => {
+  const notaFound = await listarUmaNota(idNota)
+  const notaEliminada = await notesDBinst.delete({ where: { idNota: notaFound.idNota } })
+  return notaEliminada
 }

@@ -1,3 +1,5 @@
 import { InsertNoteDTO } from './insertNoteDTO'
 
-export type UpdateNoteDTO = Partial<InsertNoteDTO>
+export interface UpdateNoteDTO extends Partial<InsertNoteDTO> {
+  idNota: string
+}
