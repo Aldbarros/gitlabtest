@@ -11,7 +11,7 @@
   "schemes": [
     "http"
   ],
-  "host": "localhost:4545",
+  "host": "https://notes-api-production-ea67.up.railway.app",
   "basePath": "/api",
   "paths": {
     "/notes": {
@@ -85,7 +85,7 @@
         }
       }
     },
-    "/todos/{id}": {
+    "/notes/{id}": {
       "get": {
         "summary": "Listar uma nota",
         "description": "Devolve uma nota armazenada pelo id indicado",
