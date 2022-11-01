@@ -7,7 +7,7 @@ import app from './app'
 dotenv.config({ path: resolve(__dirname, '..', '.env') })
 
 const startServer = (): void => {
-  const porta = process.env.PORT || 4343
+  const porta = process.env.PORT ?? 4343
   const servidor = createServer(app)
   servidor.listen(porta, () => {
     console.log(`Servidor sendo executado na porta ${porta}`)
