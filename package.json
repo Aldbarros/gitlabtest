@@ -7,9 +7,9 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc --build",
-    "build:clean": "tsc --build --clean",
     "lint:fix": "eslint src --fix",
-    "dev": "ts-node-dev src/server.ts"
+    "dev": "ts-node-dev src/server.ts",
+    "start": "node build/server"
   },
   "devDependencies": {
     "@types/compression": "1.7.2",
