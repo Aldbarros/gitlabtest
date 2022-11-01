@@ -11,4 +11,3 @@ exports.roteadorNotes.route('/:idNota')
     .get(notes_controller_1.listarUmaNotaHttp)
     .delete(notes_controller_1.eliminarUmaNotaHttp)
     .put(notes_controller_1.atualizarUmaNotaHttp);
-//# sourceMappingURL=notes.routes.js.map

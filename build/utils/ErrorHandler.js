@@ -38,4 +38,3 @@ const errorMiddleware = (err, req, res, next) => {
 exports.errorMiddleware = errorMiddleware;
 const erro404 = (_req, _res, next) => next(new ErrorHandler('NOTFOUND', 'Recurso não encontrado', 404));
 exports.erro404 = erro404;
-//# sourceMappingURL=ErrorHandler.js.map

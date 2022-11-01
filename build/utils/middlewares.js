@@ -30,4 +30,3 @@ const useMiddlewares = (app) => {
     app.use(ErrorHandler_1.errorMiddleware);
 };
 exports.useMiddlewares = useMiddlewares;
-//# sourceMappingURL=middlewares.js.map

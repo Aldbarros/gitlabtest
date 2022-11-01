@@ -17,4 +17,3 @@ exports.atualizarNota = joi_1.default.object({
         'string.empty': 'Insira por favor uma nota'
     })
 });
-//# sourceMappingURL=notes.validation.js.map

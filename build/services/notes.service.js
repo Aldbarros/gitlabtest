@@ -44,4 +44,3 @@ const eliminarUmaNota = async (idNota) => {
     return notaEliminada;
 };
 exports.eliminarUmaNota = eliminarUmaNota;
-//# sourceMappingURL=notes.service.js.map

@@ -6,4 +6,3 @@ const middlewares_1 = require("./utils/middlewares");
 const app = (0, express_1.default)();
 (0, middlewares_1.useMiddlewares)(app);
 exports.default = app;
-//# sourceMappingURL=app.js.map
