@@ -11,8 +11,18 @@ export const listarUmaNotaHttp = async (req: Request, res: Response<any>, next: 
       statusCode: 200,
       body: resultado
     })
-  } catch (err: unknown) {
+  } catch (err: any) {
     console.error(err)
+    if (err.name === 'NOTFOUND') {
+      return res.status(err.statusCode).json({
+        statusCode: err.statusCode,
+        body: {
+          timestamp: new Date().toLocaleDateString('pt-pt', { day: 'numeric', month: 'long', year: 'numeric' }),
+          message: err.mensagemErro,
+          method: req.method
+        }
+      })
+    }
   }
 }
 
